@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Symbol usage</title>
+  </head>
+  <body>
+    <script>
+      //Symbol use
+      const username = Symbol("username");
+      const password = Symbol("password");
+
+      const user = {
+        username: "Admin",
+        password: "123456",
+      };
+
+      console.log(user.username);
+      console.log(user.password);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Method</title>
+</head>
+<body>
+   <script>
+      //Using Set Method
+      function foodTruckFestival(menus) {
+          let flatMenus = menus.flat();
+          const combinedMenus = new Set();
+  
+          flatMenus.forEach((item) => {
+            combinedMenus.add(item);
+          });
+          let nodeMenu = document.querySelector("#food-list");
+          for (let item of combinedMenus) {
+            let nodeList = document.createElement("li");
+            nodeList.innerText = item;
+            nodeMenu.appendChild(nodeList);
+          }
+        }
+  
+        foodTruckFestival([
+          ["Pizza", "Pasta", "Fried Rice"],
+          ["Pizza", "Veg Biryani"],
+          ["Spaghetti", "Mushroom Soup"],
+        ]);
+  
+   </script>
+</body>
+</html>

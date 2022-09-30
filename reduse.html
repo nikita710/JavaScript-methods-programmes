@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reduce Method</title>
+</head>
+<body>
+    <script>
+         //Reduce use
+         function coffeeDate(coffeeArr) {
+          const coffeeSum = coffeeArr.reduce(
+            (totalCoffee, numCoffee) => (totalCoffee += numCoffee)
+          );
+          return `Total coffee bill $${coffeeSum * 1.25}`;
+        }
+        const coffee = [2, 3, 5, 1];
+        console.log(coffeeDate(coffee));
+    </script>
+</body>
+</html>

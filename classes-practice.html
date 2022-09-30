@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Class</title>
+  </head>
+  <body>
+    <script>
+      // ** Using Function
+
+      // function Book(title, author, ISBN, numCopies) {
+      //   this.title = title;
+      //   this.author = author;
+      //   this.ISBN = ISBN;
+      //   this.numCopies = numCopies;
+      // }
+
+      // Book.prototype.getAvailability = function () {
+      //   if (this.numCopies === 0) {
+      //     return "Out of stock";
+      //   } else if (this.numCopies < 10) {
+      //     return "Low in stock";
+      //   }
+      //   return "In stock";
+      // };
+
+      // Book.prototype.sell = function (numCopiesSold) {
+      //   this.numCopies -= numCopiesSold;
+      // };
+      // Book.prototype.restock = function (numCopiesStocked) {
+      //   this.numCopies += numCopiesStocked;
+      // };
+
+      // Using Class
+      class Book {
+        constructor(title, author, ISBN, numCopies) {
+          this.title = title;
+          this.author = author;
+          this.ISBN = ISBN;
+          this.numCopies = numCopies;
+        }
+
+        getAvailability() {
+          if (this.numCopies === 0) {
+            return "Out of Stock";
+          } else if (this.numCopies < 10) {
+            return "Low Stock";
+          }
+          return "Available";
+        }
+
+        sell(numCopiesSold) {
+          this.numCopies -= numCopiesSold;
+        }
+        restock(numCopiesStocked) {
+          this.numCopies += numCopiesStocked;
+        }
+      }
+
+      // Inheritance
+      class addEdition extends Book {
+        constructor(title, author, ISBN, numCopies, edition) {
+          super(title, author, ISBN, numCopies);
+          this.edition = edition;
+        }
+        getEdition() {
+          return `the current version of this book is ${this.edition}`;
+        }
+      }
+
+      const HungerGames = new Book("Hunger Games", "Suzan Collins", 568974, 5);
+      const inheritBook = new addEdition(
+        "Hunger Games",
+        "Suzan Collins",
+        568974,
+        5,
+        "2.5"
+      );
+      console.log(HungerGames.getAvailability());
+      HungerGames.restock(12);
+      inheritBook.restock(12);
+      console.log(HungerGames.getAvailability());
+      console.log(inheritBook.getAvailability());
+      console.log(inheritBook.getEdition());
+      HungerGames.sell(17);
+      console.log(HungerGames.getAvailability());
+
+      // ** Using Function
+
+      // function Movie(title, director, genre, releaseYear, rating) {
+      //   this.title = title;
+      //   this.director = director;
+      //   this.genre = genre;
+      //   this.releaseYear = releaseYear;
+      //   this.rating = rating;
+      // }
+      // Movie.prototype.getReview = function () {
+      //   return `${this.title} a ${this.genre} film directed by ${this.director} was release in ${this.releaseYear}. It's received a rating of ${this.rating} `;
+      // };
+
+      // ** Using Class
+
+      class Movie {
+        constructor(title, director, genre, releaseYear, rating) {
+          this.title = title;
+          this.director = director;
+          this.genre = genre;
+          this.releaseYear = releaseYear;
+          this.rating = rating;
+        }
+        getReview() {
+          return `${this.title} a ${this.genre} film directed by ${this.director} was release in ${this.releaseYear}. It's received a rating of ${this.rating} `;
+        }
+      }
+
+      const Spiderman = new Movie("Spiderman", "Sam Raini", "Action", 2002, 85);
+      const Batman = new Movie(
+        "The Dark Knight",
+        "Kristopher Nolan",
+        "Action",
+        2008,
+        70
+      );
+
+      console.log(Spiderman);
+      console.log(Spiderman.getReview());
+      console.log(Batman.getReview());
+    </script>
+  </body>
+</html>

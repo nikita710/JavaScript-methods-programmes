@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter Method</title>
+  </head>
+  <body>
+    <ul id="menu-list"></ul>
+
+    <script>
+      //Filter Method
+      function vegetarianMenu(menu) {
+        const nodeList = document.querySelector("#menu-list");
+        const vegetarianFind = menu.filter((items) => {
+          return items.isVegetarian === true;
+        });
+        vegetarianFind.forEach((element) => {
+          let list = document.createElement("li");
+          list.textContent = element.name;
+          nodeList.append(list);
+        });
+      }
+
+      const menu = [
+        {
+          name: "Fried Rice",
+          isVegetarian: true,
+        },
+        {
+          name: "Butter Chicken",
+          isVegetarian: false,
+        },
+        {
+          name: "Panner Kadhai",
+          isVegetarian: true,
+        },
+      ];
+
+      vegetarianMenu(menu);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure use</title>
+  </head>
+  <body>
+    <button id="blue">Blue</button>
+    <button id="green">Green</button>
+    <button id="pink">Pink</button>
+
+    <script>
+      //Closer use
+      function changeColor(color) {
+        return function () {
+          document.body.style.background = color;
+        };
+      }
+      const bgColorBlue = changeColor("#0f62fe");
+      const bgColorPink = changeColor("#ff7eb6");
+      const bgColorGreen = changeColor("#42be65");
+      document.querySelector("#blue").addEventListener("click", bgColorBlue);
+      document.querySelector("#pink").addEventListener("click", bgColorPink);
+      document.querySelector("#green").addEventListener("click", bgColorGreen);
+    </script>
+  </body>
+</html>

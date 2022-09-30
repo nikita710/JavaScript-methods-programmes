@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="next-button">Next</button>
+    <script>
+      //Using generator* Method
+      function* getStop() {
+        yield "Stop 1";
+        yield "Stop 2";
+        yield "Stop 3";
+        yield "Stop 4";
+        yield "Stop 5";
+        yield "Reached";
+      }
+      let nycTrainLine = getStop();
+      let nextButton = document.querySelector("#next-button");
+      nextButton.addEventListener("click", () => {
+        let curStop = nycTrainLine.next();
+        if (curStop.done) {
+          console.log("We made it!");
+          nextButton.setAttribute("disabled", true);
+        } else {
+          console.log(curStop.value);
+        }
+      });
+    </script>
+  </body>
+</html>

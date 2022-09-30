@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>async await Method</title>
+  </head>
+  <body>
+    <div id="timeline"></div>
+    <script>
+      //Using async await Method
+      async function getUsers() {
+        let people = await fetch("https://randomuser.me/api/?results=5");
+        let apiData = await people.json();
+        let timeline = document.querySelector("#timeline");
+        apiData.results.forEach((person) => {
+          let image = document.createElement("img");
+          image.src = person.picture.medium;
+          timeline.appendChild(image);
+        });
+      }
+      getUsers();
+    </script>
+  </body>
+</html>
