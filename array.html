@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // Foreach
+      const foreach = ["N", "I", "K", "I", "T", "A", "P"];
+      let count = {};
+      document.write("Array: [" + foreach + "]</br>");
+      foreach.forEach((value, index, array) => {
+        document.writeln("Index: [" + index + "] Value: " + value + "</br>");
+      });
+
+      const mapArr = [1, 2, 3, 4, 5];
+      mapArr.map((value, index, array) => {
+        console.log(value);
+      });
+
+      // Filter
+      function filterArr() {
+        const filterArr = [1, 2, 3, 2, 4, 5, 8, 6, 7, 8, 9, 5, 10];
+        const filterObj = [
+          { name: "abc", age: 25 },
+          { name: "bcd", age: 30 },
+          { name: "cde", age: 32 },
+        ];
+        const oodNum = filterArr.filter((value, index, array) => {
+          return value % 2 !== 0 && array.indexOf(value) === index;
+        });
+        const ageFilter = filterObj.filter((value, index, array) => {
+          return value.age > 29;
+        });
+        console.log(oodNum);
+        console.log(ageFilter);
+      }
+      filterArr();
+
+      // Reduce
+      function reduceArr() {
+        const reduceArr = [1, 2, 3, 4, 5];
+        const sum = reduceArr.reduce(
+          (previousValue, currentValue, index, array) => {
+            return previousValue + currentValue;
+          },
+          2
+        );
+        console.log(sum);
+
+        const reduceObj = [
+          { product: "phone", price: 1500, count: 5 },
+          { product: "laptop", price: 3500, count: 8 },
+          { product: "desktop", price: 4000, count: 10 },
+        ];
+
+        const totalStore = reduceObj.reduce(
+          (previousValue, currentValue, index, array) => {
+            return previousValue + currentValue.price * currentValue.count;
+          },
+          0
+        );
+        console.log(totalStore);
+      }
+      reduceArr();
+
+      // Slice
+      function sliceArr() {
+        const sliceArr = [1, 2, 3, 4, 5];
+        console.log(sliceArr.slice(0, 3)); // [1, 2, 3]
+      }
+      sliceArr();
+
+      // Splice -> modify the original array
+      function spliceArr() {
+        const spliceArr = [1, 2, 3, 4, 5];
+        console.log(spliceArr.splice(1, 2)); // [2, 3]
+        console.log(spliceArr); // [1, 4, 5]
+        console.log(spliceArr.splice(1, 0, 2, 3)); //[]
+        console.log(spliceArr); //[1, 2, 3, 4, 5]
+      }
+      spliceArr();
+
+      // Sort
+      function sortArr() {
+        const sortArr = [10, 8, 3, 7, 5, 9, 101, 15];
+        const strArr = ["yan", "kim", "nick", "james", "mark"];
+        console.log(sortArr.sort((a, b) => a - b)); //  [3, 5, 7, 8, 9, 10, 15, 101]
+        console.log(sortArr.sort((a, b) => b - a)); // [101, 15, 10, 9, 8, 7, 5, 3]
+        console.log(strArr.sort()); // ['james', 'kim', 'mark', 'nick', 'yan']
+
+        const obj = [
+          { product: "phone", price: 1500, count: 5 },
+          { product: "laptop", price: 500, count: 2 },
+          { product: "desktop", price: 4000, count: 10 },
+        ];
+        const ascending = obj.sort((a, b) => a.price - b.price);
+        console.log(ascending);
+      }
+      sortArr();
+
+      // Concat
+      function concatArr() {
+        const arr = [1, 2, 3, 4, 5];
+        const arr1 = [5, 6, 7];
+        const arr2 = [8, 9, 10];
+        console.log(arr.concat(arr1, arr2)); // [1, 2, 3]
+      }
+      concatArr();
+
+      // Fill
+      function fillArr() {
+        const arr = [1, 2, 3, 4, 5];
+        console.log(arr.fill(8, 1, 3)); // [1, 8, 8, 4, 5]
+      }
+      fillArr();
+      function fillArr2(n) {
+        return Array(n)
+          .fill(0)
+          .map((value, index, array) => index + 1);
+      }
+      console.log(fillArr2(10));
+
+      // Includes
+      function includesArr() {
+        const arr = ["apple", "mango", "kiwi"];
+        if (arr.includes("mango")) {
+          console.log("Mango is available");
+        } else {
+          console.log("not available");
+        } // [1, 8, 8, 4, 5]
+      }
+      includesArr();
+
+      // Join
+      function joinArr() {
+        const arr = ["apple", "mango", "kiwi"];
+        console.log(arr.join("-")); //apple-mango-kiwi
+        console.log(arr.join(", ")); //apple, mango, kiwi
+      }
+      joinArr();
+
+      // Reverse
+      function reverseArr() {
+        const arr = ["apple", "mango", "kiwi"];
+        const arr2 = "I love coding!";
+        console.log(arr.reverse()); //apple-mango-kiwi
+        console.log(arr2.split("").reverse().join("")); //apple-mango-kiwi
+      }
+      reverseArr();
+
+      // Every
+      function everyArr() {
+        const arr = [1, 2, 3, 4, 5];
+        const arr2 = [-1, -2, 1, 2, 3, 4, 5];
+        console.log(arr.every((value, index, array) => value > 0)); //True
+        console.log(arr2.every((value, index, array) => value > 0)); //False
+      }
+      everyArr();
+
+      // Some
+      function someArr() {
+        const arr = [1, 2, 3, 4, 5];
+        const arr2 = [-1, -2, 1, 2, 3, 4, 5];
+        console.log(arr.some((value, index, array) => value > 3)); //True
+      }
+      someArr();
+
+      // Find
+      function findArr() {
+        const arr = [1, 2, 3, 4, 5];
+        const arr2 = ["apple", "mango", "kiwi"];
+        console.log(arr.find((value, index, array) => value > 3)); //4
+        console.log(arr2.find((value, index, array) => value == "kiwi")); //kiwi
+      }
+      findArr();
+
+      // From
+      function fromArr() {
+        const arr = "12345";
+        const arr2 = [1, 2, 2, 3, 4, 5, 5, 6, 7, 8, 6];
+        console.log(Array.from(arr, Number)); //[1, 2, 3, 4, 5]
+        console.log(Array.from(new Set(arr2))); //[1, 2, 3, 4, 5, 6, 7, 8]
+      }
+      fromArr();
+
+      // Flat
+      function flatArr() {
+        const arr = [1, [2, [3, [4,[5]]]]];
+        console.log(arr.flat(Infinity)); //[1, 2, 3, 4, 5]
+      }
+      flatArr();
+    </script>
+  </body>
+</html>
